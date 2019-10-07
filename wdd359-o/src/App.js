@@ -1,11 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Youtube from './youtube';
+import TMDB from './tmbd';
 
 function App() {
   return (
     <div className="App">
-      <p>This is a test.</p>
+      <p>Project Proof of Concept.</p>
+      <div>
+        <Youtube />
+        <TMDB />
+      </div>
     </div>
   );
 }
