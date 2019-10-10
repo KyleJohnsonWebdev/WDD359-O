@@ -4,7 +4,7 @@ import $ from "jquery"
 // my api key for the site
 const aPiKey = '4f7293179ec47513f99cf71f6a78671b';
 //let url = 'https://api.themoviedb.org/3/' + 'configuration?api_key=' + aPiKey;
-class TMBD extends Component {
+class TMDB extends Component {
 //still learning hooks so I used props
   constructor(props){
     super(props);
@@ -48,4 +48,4 @@ class TMBD extends Component {
     );
   }
 }
-export default TMBD;
+export default TMDB;

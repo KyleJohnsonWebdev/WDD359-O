@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
-import Youtube from './youtube';
-import TMDB from './tmbd';
+import Youtube from './components/youtube';
+import TMDB from './components/tmdb';
+import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
   return (
