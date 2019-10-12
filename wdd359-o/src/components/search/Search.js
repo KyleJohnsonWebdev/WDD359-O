@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
     padding: '2px 4px',
     display: 'flex',
     alignItems: 'center',
-    width: '99%',
+    width: '90%',
   },
   input: {
     marginLeft: theme.spacing(1),
@@ -37,13 +37,13 @@ export default function SearchMovie() {
   ];
 
   const [rows, setRows] = useState(movies);
-  
+
 
   return (
     <Paper className={classes.root}>
     <InputBase
       className={classes.input}
-      placeholder="Search Movie Information"
+      placeholder="Search Movies"
       inputProps={{ 'aria-label': 'search movie information' }}
     />
     <IconButton className={classes.iconButton} aria-label="search">

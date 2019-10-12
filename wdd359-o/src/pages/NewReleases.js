@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-
+import Youtube from './../components/youtube';
 function NewReleases(){
   return(
     <div>
-    NewReleases
+      <Youtube />
     </div>
   );
 }

@@ -20,6 +20,7 @@ import MenuList from '@material-ui/core/MenuList';
     root: {
       flexGrow: 1,
       display: 'flex',
+      marginBottom: '1rem',
     },
     menuButton: {
       marginRight: theme.spacing(2),
