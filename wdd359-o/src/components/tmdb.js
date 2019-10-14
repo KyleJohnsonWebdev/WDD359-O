@@ -1,51 +1,52 @@
-import React, { Component } from 'react';
-//watched a video how to use jquery for fetching, wanted to try it out
-import $ from "jquery"
-// my api key for the site
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import './tmdb.css';
+//import Box from '@material-ui/core/Box';
+
 const aPiKey = '4f7293179ec47513f99cf71f6a78671b';
-//let url = 'https://api.themoviedb.org/3/' + 'configuration?api_key=' + aPiKey;
-class TMDB extends Component {
-//still learning hooks so I used props
-  constructor(props){
-    super(props);
-    this.state = {
-      results: []
-    };
-    this.doSearch()
+const urlSearchString = "https://api.themoviedb.org/3/movie/upcoming?page=1&language=en-US&api_key=" + aPiKey;
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    padding: theme.spacing(3, 2),
+
+  },
+}));
+
+function TMDB() {
+  const classes = useStyles();
+  const [data, setData] = useState({ results: [] });
+
+  useEffect(() => {
+  let ignore = false;
+
+  async function fetchData() {
+    const result = await axios(urlSearchString);
+    if (!ignore) setData(result.data);
   }
 
-  doSearch(){
-    console.log("Searching using movieDB")
-    const urlSearchString = "https://api.themoviedb.org/3/search/movie?query=xmen&api_key=" + aPiKey;
-    $.ajax({
-      url: urlSearchString,
-      success: (results) => {
-        console.log("fetch was successful")
-        console.log(results);
-        this.setState(results);
+  fetchData();
+  return () => { ignore = true; }
+});
 
-
-      },
-      error: (xhr, status, err) => {
-        console.error("fetch did not work")
-      }
-    })
-  }
-
-  render(){
     return(
-      <div>
-        {this.state.results.map(function(item, index){
+      <div className="tMDBCard">
+        <Paper className={classes.root} style={{display: 'inline-block'}}>
+        {data.results.map(function(item, index){
           return(
             <div key={index}>
-              <h2>{item.title}</h2>
-              <p>{item.overview}</p>
+              <Typography variant="h5" component="h3">{item.title}</Typography>
+              <Typography component="p">{item.overview} </Typography>
             </div>
           )
         }
         )}
+        </Paper>
       </div>
     );
   }
-}
+
 export default TMDB;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Youtube from './../components/youtube';
 function NewReleases(){
   return(

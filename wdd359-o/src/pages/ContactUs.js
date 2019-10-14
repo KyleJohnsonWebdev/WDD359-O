@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
-import MenuItem from '@material-ui/core/MenuItem';
+//import clsx from 'clsx';
+//import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -23,6 +24,12 @@ const useStyles = makeStyles(theme => ({
   },
   root: {
     padding: theme.spacing(3, 2),
+  },
+  button: {
+    margin: theme.spacing(1),
+  },
+  input: {
+    display: 'none',
   },
 }));
 
@@ -82,11 +89,11 @@ function ContactUs(){
             multiline
             rows="4"
             fullWidth
-            defaultValue="Message"
             className={classes.multiline}
             margin="normal"
             variant="filled"
           />
+          <Button variant="contained" color="primary" className={classes.button}>Submit</Button>
         </form>
       </Paper>
     </div>
