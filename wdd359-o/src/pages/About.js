@@ -11,10 +11,10 @@ import logo from './../images/Kyle.jpg';
 
 const useStyles = makeStyles({
   card: {
-    maxWidth: 345,
+    maxWidth: '100%',
   },
   media: {
-    height: 140,
+    height: 350,
   },
 });
 
@@ -38,7 +38,14 @@ export default function About() {
           </Typography>
         </CardContent>
       </CardActionArea>
-      
+      <CardActions>
+        <Button size="small" color="primary">
+          Share
+        </Button>
+        <Button size="small" color="primary">
+          Learn More
+        </Button>
+      </CardActions>
     </Card>
   );
 }

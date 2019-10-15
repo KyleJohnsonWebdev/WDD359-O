@@ -2,9 +2,4 @@
   max-width: 100%;
 }
 
-  @media all and (min-width: 600px) {
-    ..tMDBCard{max-width: 50%;}
-  }
-  @media all and (min-width: 800px) {
-    .tMDBCard{max-width: 25%;}
-  }
+  

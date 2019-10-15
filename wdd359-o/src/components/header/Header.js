@@ -10,17 +10,19 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import './Header.css';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Grow from '@material-ui/core/Grow';
-import Paper from '@material-ui/core/Paper';
-import Popper from '@material-ui/core/Popper';
-import MenuItem from '@material-ui/core/MenuItem';
-import MenuList from '@material-ui/core/MenuList';
+import Drawer from '@material-ui/core/Drawer';
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import MailIcon from '@material-ui/icons/Mail';
+
   const useStyles = makeStyles(theme => ({
     root: {
       flexGrow: 1,
-      display: 'flex',
-      marginBottom: '1rem',
+
     },
     menuButton: {
       marginRight: theme.spacing(2),
@@ -28,76 +30,101 @@ import MenuList from '@material-ui/core/MenuList';
     title: {
       flexGrow: 1,
     },
-    paper: {
-    marginRight: theme.spacing(2),
+    list: {
+    width: 250,
   },
+  fullList: {
+    width: 'auto',
+  },
+
   }));
 
 
 
 export default function Header () {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
-    const anchorRef = React.useRef(null);
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
 
-    const handleToggle = () => {
-      setOpen(prevOpen => !prevOpen);
-    };
-
-    const handleClose = event => {
-      if (anchorRef.current && anchorRef.current.contains(event.target)) {
-        return;
-      }
-
-      setOpen(false);
-    };
-
-    function handleListKeyDown(event) {
-      if (event.key === 'Tab') {
-        event.preventDefault();
-        setOpen(false);
-      }
+  const toggleDrawer = (side, open) => event => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
     }
 
+    setState({ ...state, [side]: open });
+  };
 
-    // return focus to the button when we transitioned from !open -> open
-    const prevOpen = React.useRef(open);
-    React.useEffect(() => {
-      if (prevOpen.current === true && open === false) {
-        anchorRef.current.focus();
-      }
+  const sideList = side => (
+    <div
+      className={classes.list}
+      role="presentation"
+      onClick={toggleDrawer(side, false)}
+      onKeyDown={toggleDrawer(side, false)}
+    >
+      <List>
+        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+    </div>
+  );
 
-      prevOpen.current = open;
-    }, [open]);
+  const fullList = side => (
+    <div
+      className={classes.fullList}
+      role="presentation"
+      onClick={toggleDrawer(side, false)}
+      onKeyDown={toggleDrawer(side, false)}
+    >
+      <List>
+        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+    </div>
+  );
+
+
+
   return (
     <div className={classes.root}>
       <AppBar position="static" style={{ backgroundColor: '#CCB145' }}>
         <Toolbar>
-        <div>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" ref={anchorRef}
-          aria-controls="menu-list-grow"
-          aria-haspopup="true"
-          onClick={handleToggle}>
+          <IconButton onClick={toggleDrawer('left', true)} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
-            <Popper open={open} anchorEl={anchorRef.current} keepMounted transition disablePortal>
-            {({ TransitionProps, placement }) => (
-              <Grow {...TransitionProps} style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}>
-                <Paper id="menu-list-grow">
-                  <ClickAwayListener onClickAway={handleClose}>
-                    <MenuList autoFocusItem={open} onKeyDown={handleListKeyDown}>
-                      <MenuItem component={Link} to="/NewReleases" onClick={handleClose}>New Releases</MenuItem>
-                      <MenuItem component={Link} to="/Reviews" onClick={handleClose}>Reviews</MenuItem>
-                      <MenuItem component={Link} to="/About" onClick={handleClose}>About</MenuItem>
-                      <MenuItem component={Link} to="/ContactUs" onClick={handleClose}>Contact Us</MenuItem>
-                      <MenuItem onClick={handleClose}>Log Out</MenuItem>
-                    </MenuList>
-                  </ClickAwayListener>
-                </Paper>
-              </Grow>
-            )}
-            </Popper>
-        </div>
+          <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
+            {sideList('left')}
+          </Drawer>
+
           <Typography variant="h6" className={classes.title}>
             <img src={logo} alt="Logo" className="logo"/>
           </Typography>
