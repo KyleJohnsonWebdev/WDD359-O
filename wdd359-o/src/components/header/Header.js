@@ -18,6 +18,11 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import NewReleasesIcon from '@material-ui/icons/NewReleases';
+import RateReviewIcon from '@material-ui/icons/RateReview';
+import InfoIcon from '@material-ui/icons/Info';
+import ContactsIcon from '@material-ui/icons/Contacts';
 
   const useStyles = makeStyles(theme => ({
     root: {
@@ -33,9 +38,7 @@ import MailIcon from '@material-ui/icons/Mail';
     list: {
     width: 250,
   },
-  fullList: {
-    width: 'auto',
-  },
+
 
   }));
 
@@ -66,18 +69,29 @@ export default function Header () {
       onKeyDown={toggleDrawer(side, false)}
     >
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
+          <ListItem component={Link} to="./../NewReleases" button key="New Releases">
+            <ListItemIcon><NewReleasesIcon /></ListItemIcon>
+            <ListItemText primary="New Releases" />
           </ListItem>
-        ))}
+          <ListItem component={Link} to="./../Reviews" button key="Reviews">
+            <ListItemIcon><RateReviewIcon /></ListItemIcon>
+            <ListItemText primary="Reviews" />
+          </ListItem>
+          <ListItem component={Link} to="./../About" button key="About">
+            <ListItemIcon><InfoIcon /></ListItemIcon>
+            <ListItemText primary="About" />
+          </ListItem>
+          <ListItem component={Link} to="./../ContactUs" button key="Contact Us">
+            <ListItemIcon><ContactsIcon /></ListItemIcon>
+            <ListItemText primary="Contact Us" />
+          </ListItem>
+
       </List>
       <Divider />
       <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
+        {['Log Out', ].map((text, index) => (
           <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            <ListItemIcon>{index % 2 === 0 ? <ExitToAppIcon /> : <ExitToAppIcon />}</ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
         ))}
@@ -85,32 +99,7 @@ export default function Header () {
     </div>
   );
 
-  const fullList = side => (
-    <div
-      className={classes.fullList}
-      role="presentation"
-      onClick={toggleDrawer(side, false)}
-      onKeyDown={toggleDrawer(side, false)}
-    >
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-    </div>
-  );
+
 
 
 

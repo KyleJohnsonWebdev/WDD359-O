@@ -27,25 +27,29 @@ export default function App(){
   return (
   <Container maxWidth='xl'>
     <div className={classes.root}>
-      <Grid container spacing={3}>
+      <Grid container spacing={2}>
         <Router>
           <Grid item xs={12}>
             <Header />
           </Grid>
           <Grid item xs={12} sm={3}>
-            <aside className="asideOne">
-              <Typography gutterBottom='true' variant="h5" align="center">Movie Information</Typography >
+            <aside >
+              <Typography  gutterBottom='true' variant="h5" align="center">
+                Movie Information
+              </Typography >
               <SearchMovie />
             </aside>
           </Grid>
          <Grid item xs={12} sm={6}>
-            <main className="main">
+            <main >
               <Routes />
             </main>
           </Grid>
           <Grid item xs={12} sm={3}>
-            <aside className="asideTwo">
-              <Typography gutterBottom='true' variant="h5" align="center">Coming Soon</Typography >
+            <aside >
+              <Typography  gutterBottom='true' variant="h5" align="center">
+                Coming Soon
+              </Typography >
               <TMDB />
             </aside>
           </Grid>

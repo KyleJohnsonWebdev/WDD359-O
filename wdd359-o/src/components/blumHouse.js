@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 //building the api url string
 const aPI = 'AIzaSyDEVvgG2n21JbTBC_EObqDxHP6EmuY9ndw';
-const iD = 'UC2-BeLxzUBSs0uSrmzWhJuQ';
-const results = 5;
+const iD = 'UCCEfOHkckMXnoZQAjUZsMig';
+const results = 3;
 let url = `https://www.googleapis.com/youtube/v3/search?key=${aPI}&channelId=${iD}&part=snippet,id&order=date&maxResults=${results}`
 
 //youtube class
-class Youtube extends Component {
+class BlumHouse extends Component {
 //still learning hooks so I used props
   constructor(props){
     super(props);
@@ -41,7 +41,7 @@ componentDidMount(){
     return(
       <div>
       <Typography variant="h5" gutterBottom align="center">
-        20th Century Fox
+        Blum House
       </Typography>
       <div >
           {
@@ -67,4 +67,4 @@ componentDidMount(){
     );
   }
 }
-export default Youtube;
+export default BlumHouse;

@@ -3,11 +3,11 @@ import Typography from '@material-ui/core/Typography';
 //building the api url string
 const aPI = 'AIzaSyDEVvgG2n21JbTBC_EObqDxHP6EmuY9ndw';
 const iD = 'UC2-BeLxzUBSs0uSrmzWhJuQ';
-const results = 5;
+const results = 3;
 let url = `https://www.googleapis.com/youtube/v3/search?key=${aPI}&channelId=${iD}&part=snippet,id&order=date&maxResults=${results}`
 
 //youtube class
-class Youtube extends Component {
+class TwentiethCenturyFox extends Component {
 //still learning hooks so I used props
   constructor(props){
     super(props);
@@ -67,4 +67,4 @@ componentDidMount(){
     );
   }
 }
-export default Youtube;
+export default TwentiethCenturyFox;
