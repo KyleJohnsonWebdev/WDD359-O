@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 //building the api url string
 const aPI = 'AIzaSyDEVvgG2n21JbTBC_EObqDxHP6EmuY9ndw';
-const iD = 'UC2-BeLxzUBSs0uSrmzWhJuQ';
-const results = 5;
+const iD = ({props.id})
+const results = 10;
 let url = `https://www.googleapis.com/youtube/v3/search?key=${aPI}&channelId=${iD}&part=snippet,id&order=date&maxResults=${results}`
 
 //youtube class

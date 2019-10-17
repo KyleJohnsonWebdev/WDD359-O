@@ -48,10 +48,8 @@ function ContactUs(){
   };
   return(
     <div>
+      <Typography gutterBottom='true' variant="h3" align="center">Contact Us</Typography>
       <Paper className={classes.root}>
-        <Typography variant="h3" component="h3">
-          Contact Us
-        </Typography>
         <form className={classes.container} noValidate autoComplete="off">
           <TextField
             id="filled-name"
