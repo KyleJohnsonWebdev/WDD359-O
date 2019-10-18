@@ -1,4 +1,3 @@
-
 import logo from '../../images/camper.png';
 import { Link } from "react-router-dom";
 import React from 'react';
@@ -16,8 +15,6 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import NewReleasesIcon from '@material-ui/icons/NewReleases';
 import RateReviewIcon from '@material-ui/icons/RateReview';
@@ -27,7 +24,6 @@ import ContactsIcon from '@material-ui/icons/Contacts';
   const useStyles = makeStyles(theme => ({
     root: {
       flexGrow: 1,
-
     },
     menuButton: {
       marginRight: theme.spacing(2),
@@ -38,26 +34,16 @@ import ContactsIcon from '@material-ui/icons/Contacts';
     list: {
     width: 250,
   },
-
-
   }));
-
-
 
 export default function Header () {
   const classes = useStyles();
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  });
+  const [state, setState] = React.useState({top: false, left: false, bottom: false, right: false, });
 
   const toggleDrawer = (side, open) => event => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
     }
-
     setState({ ...state, [side]: open });
   };
 
@@ -85,7 +71,6 @@ export default function Header () {
             <ListItemIcon><ContactsIcon /></ListItemIcon>
             <ListItemText primary="Contact Us" />
           </ListItem>
-
       </List>
       <Divider />
       <List>
@@ -99,27 +84,25 @@ export default function Header () {
     </div>
   );
 
-
-
-
-
   return (
+    <React.Fragment>
     <div className={classes.root}>
-      <AppBar position="static" style={{ backgroundColor: '#CCB145' }}>
-        <Toolbar>
-          <IconButton onClick={toggleDrawer('left', true)} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
-          <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
-            {sideList('left')}
-          </Drawer>
+        <AppBar position="static" style={{ backgroundColor: '#CCB145' }}>
+          <Toolbar>
+            <IconButton onClick={toggleDrawer('left', true)} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+              <MenuIcon />
+            </IconButton>
+            <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
+              {sideList('left')}
+            </Drawer>
 
-          <Typography align="center" variant="h6" className={classes.title}>
-            <img src={logo} alt="Logo" className="logo"/>
-          </Typography>
-          <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
+            <Typography align="center" variant="h6" className={classes.title}>
+              <img src={logo} alt="Logo" className="logo"/>
+            </Typography>
+            <Button color="inherit">Login</Button>
+          </Toolbar>
+        </AppBar>
     </div>
+    </React.Fragment>
   );
 }

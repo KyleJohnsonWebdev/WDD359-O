@@ -2,10 +2,8 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import mrSunday from './../images/MrSunday.jpg';
 import cinemaSins from './../images/cinemaSins.jpg';
@@ -13,7 +11,6 @@ import jeremyJahns from './../images/jeremyJahns.jpg';
 import chrisStuckmann from './../images/chrisStuckmann.jpg';
 import screenRant from './../images/screenRant.jpg';
 import rottenTomatoes from './../images/rottenTomatoes.jpg';
-import PlayCircleFilledWhiteIcon from '@material-ui/icons/PlayCircleFilledWhite';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { Link } from 'react-router-dom';

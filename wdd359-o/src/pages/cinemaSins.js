@@ -22,6 +22,10 @@ const useStyles = makeStyles(theme => ({
     width: 60,
     height: 60,
   },
+  linkStyles:{
+    textDecorationLine: 'none',
+    color: 'black'
+  }
 }));
 
 export default function CinemaSins() {
@@ -31,16 +35,16 @@ export default function CinemaSins() {
     <div>
     <Paper elevation={0} className={classes.paper}>
       <Breadcrumbs maxItems={2} aria-label="breadcrumb">
-        <Link color="inherit" to="/Reviews" style={{ textDecorationLine: 'none', color: 'black' }}>
+        <Link color="inherit" to="/Reviews" className={classes.linkStyles}>
           Reviews
         </Link>
-        <Link color="inherit" to="/NewReleases" style={{ textDecorationLine: 'none', color: 'black' }} >
+        <Link color="inherit" to="/NewReleases" className={classes.linkStyles} >
           New Releases
         </Link>
-        <Link color="inherit" to="/About" style={{ textDecorationLine: 'none', color: 'black' }}>
+        <Link color="inherit" to="/About" className={classes.linkStyles}>
           About
         </Link>
-        <Link color="inherit" to="/ContactUs" style={{ textDecorationLine: 'none', color: 'black' }} >
+        <Link color="inherit" to="/ContactUs" className={classes.linkStyles} >
           Contact Us
         </Link>
         <Typography color="textPrimary">Cinema Sins</Typography>
