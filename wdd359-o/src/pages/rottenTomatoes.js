@@ -3,7 +3,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
+import { Link } from 'react-router-dom';
+import Avatar from '@material-ui/core/Avatar';
+import Grid from '@material-ui/core/Grid';
+import chrisStuckmann from './../images/chrisStuckmann.jpg';
+import ChrisSYoutube from './../components/chrisSYoutube';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -13,7 +17,13 @@ const useStyles = makeStyles(theme => ({
   paper: {
     padding: theme.spacing(1, 2),
   },
+  bigAvatar: {
+    margin: 10,
+    width: 60,
+    height: 60,
+  },
 }));
+
 
 export default function RottenTomatoes() {
   const classes = useStyles();
