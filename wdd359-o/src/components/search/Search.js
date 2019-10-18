@@ -76,7 +76,7 @@ export default function SearchMovie() {
 
               <Typography align="center" gutterBottom='true' variant="h5" component="h3">{item.title}</Typography>
               <Typography align="center" gutterBottom='true' variant="h5" component="h3">
-              <img src={"https://image.tmdb.org/t/p/w185/"+item.poster_path} style={{maxWidth:"100%"}}/>
+              <img alt="poster" src={"https://image.tmdb.org/t/p/w185/"+item.poster_path} style={{maxWidth:"100%"}}/>
               </Typography>
               <Typography gutterBottom='true' component="p">{item.overview} </Typography>
               <Typography gutterBottom='true' component="p">Release Date:{item.release_date} </Typography>
