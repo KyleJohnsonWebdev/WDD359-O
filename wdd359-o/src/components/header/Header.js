@@ -114,7 +114,7 @@ export default function Header () {
             {sideList('left')}
           </Drawer>
 
-          <Typography variant="h6" className={classes.title}>
+          <Typography align="center" variant="h6" className={classes.title}>
             <img src={logo} alt="Logo" className="logo"/>
           </Typography>
           <Button color="inherit">Login</Button>

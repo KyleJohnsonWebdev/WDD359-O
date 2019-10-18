@@ -6,8 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
-import chrisStuckmann from './../images/chrisStuckmann.jpg';
-import ChrisSYoutube from './../components/chrisSYoutube';
+import rottenTomatoes from './../images/rottenTomatoes.jpg';
+import RottenTomatoesYoutube from './../components/rottenTomatoesYoutube';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -29,22 +29,28 @@ export default function RottenTomatoes() {
   const classes = useStyles();
 
   return (
+  <div>
     <Paper elevation={0} className={classes.paper}>
       <Breadcrumbs maxItems={2} aria-label="breadcrumb">
-        <Link color="inherit" href="/Reviews">
-          Reviews
-        </Link>
-        <Link color="inherit" href="/NewReleases" >
-          New Releases
-        </Link>
-        <Link color="inherit" href="/About" >
-          About
-        </Link>
-        <Link color="inherit" href="/ContactUs" >
-          Contact Us
-        </Link>
+      <Link color="inherit" to="/Reviews" style={{ textDecorationLine: 'none', color: 'black' }}>
+        Reviews
+      </Link>
+      <Link color="inherit" to="/NewReleases" style={{ textDecorationLine: 'none', color: 'black' }} >
+        New Releases
+      </Link>
+      <Link color="inherit" to="/About" style={{ textDecorationLine: 'none', color: 'black' }}>
+        About
+      </Link>
+      <Link color="inherit" to="/ContactUs" style={{ textDecorationLine: 'none', color: 'black' }} >
+        Contact Us
+      </Link>
         <Typography color="textPrimary">Rotten Tomatoes</Typography>
       </Breadcrumbs>
     </Paper>
+    <Grid container justify="center" alignItems="center">
+      <Avatar alt="rotten Tomatoes badge" src={rottenTomatoes} className={classes.bigAvatar} />
+    </Grid>
+    <RottenTomatoesYoutube />
+  </div>
   );
 }

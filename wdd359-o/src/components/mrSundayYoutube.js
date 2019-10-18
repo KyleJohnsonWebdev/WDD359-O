@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 const aPI = 'AIzaSyDEVvgG2n21JbTBC_EObqDxHP6EmuY9ndw';
-const iD = 'UC2-BeLxzUBSs0uSrmzWhJuQ';
+const iD = 'UCkDSAQ_5-yx5hmuvUcsJL7A';
 const results = 10;
 let url = `https://www.googleapis.com/youtube/v3/search?key=${aPI}&channelId=${iD}&part=snippet,id&order=date&maxResults=${results}`
 
@@ -36,7 +36,7 @@ componentDidMount(){
     return(
       <div>
       <Typography variant="h5" gutterBottom align="center">
-        20th Century Fox
+        Mr. Sunday
       </Typography>
       <div >
           {
