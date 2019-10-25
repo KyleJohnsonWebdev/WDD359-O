@@ -53,7 +53,11 @@ export default function SearchMovie(props) {
   const onChange = event => setValue(event.target.value);
   const [data, setData] = useState({ results: [] });
   const [videoID, setVideoID] = useState('');
-  const viewMovie = event => setVideoID(event.target.value);
+  const viewMovie = e => {
+    //i want to use that binded variable here
+    console.log(e.id)
+
+  }
 
   useEffect(() => {
   let ignore = false;
@@ -92,7 +96,7 @@ export default function SearchMovie(props) {
               </Typography>
               <Typography gutterBottom='true' component="p">{item.overview} </Typography>
               <Typography gutterBottom='true' component="p">Release Date:{item.release_date} </Typography>
-              <Button variant="contained" className={classes.button} onClick={ viewMovie.bind(item.id) }
+              <Button variant="contained" className={classes.button} onClick={ () => {viewMovie(item.id)}}
               >
                 View
               </Button>
