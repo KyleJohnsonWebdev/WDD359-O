@@ -17,18 +17,14 @@ function NewReleases(){
   return(
     <div>
       <Typography gutterBottom='true' variant="h3" align="center">New Releases</Typography>
-      <Paper className={classes.root}>
-        <ATwentyFour />
-      </Paper>
-      <Paper className={classes.root}>
-        <TwentiethCenturyFox />
-      </Paper>
-      <Paper className={classes.root}>
-        <WaltDisneyStudios />
-      </Paper>
-      <Paper className={classes.root}>
-        <BlumHouse />
-      </Paper>
+      <div>
+        <Paper className={classes.root}>
+          <ATwentyFour />
+          <TwentiethCenturyFox />
+          <WaltDisneyStudios />
+          <BlumHouse />
+        </Paper>
+      </div>
     </div>
   );
 }

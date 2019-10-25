@@ -7,7 +7,10 @@ import Paper from '@material-ui/core/Paper';
 import IconButton from '@material-ui/core/IconButton';
 import axios from 'axios';
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+
 const aPiKey = '4f7293179ec47513f99cf71f6a78671b';
+
 
 const urlSearchString = "https://api.themoviedb.org/3/search/movie?api_key=" + aPiKey + "&query=";
 
@@ -20,7 +23,6 @@ const useStyles = makeStyles(theme => ({
 
   },
   input: {
-    marginLeft: theme.spacing(1),
     flex: 1,
   },
   iconButton: {
@@ -28,19 +30,30 @@ const useStyles = makeStyles(theme => ({
   },
   divider: {
     height: 28,
-    margin: 4,
+
+  },
+  dividerTwo: {
+    height: 2,
+    marginTop: 20,
+    marginBottom: 20,
+
   },
   rootTwo:{
     padding: theme.spacing(3, 2),
-  }
+  },
+  button: {
+    margin: theme.spacing(1),
+  },
 
 }));
 
-export default function SearchMovie() {
+export default function SearchMovie(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState('');
   const onChange = event => setValue(event.target.value);
   const [data, setData] = useState({ results: [] });
+  const [videoID, setVideoID] = useState('');
+  const viewMovie = event => setVideoID(event.target.value);
 
   useEffect(() => {
   let ignore = false;
@@ -72,15 +85,19 @@ export default function SearchMovie() {
     <div>
       {data.results.map(function(item, index){
         return(
-          <Paper key={index} className={classes.rootTwo}>
-
+          <div>
               <Typography align="center" gutterBottom='true' variant="h5" component="h3">{item.title}</Typography>
               <Typography align="center" gutterBottom='true' variant="h5" component="h3">
               <img alt="poster" src={"https://image.tmdb.org/t/p/w185/"+item.poster_path} style={{maxWidth:"100%"}}/>
               </Typography>
               <Typography gutterBottom='true' component="p">{item.overview} </Typography>
               <Typography gutterBottom='true' component="p">Release Date:{item.release_date} </Typography>
-          </Paper>
+              <Button variant="contained" className={classes.button} onClick={ viewMovie.bind(item.id) }
+              >
+                View
+              </Button>
+              <Divider className={classes.dividerTwo} orientation="horizontal" />
+          </div>
         )}
       )}
     </div>
