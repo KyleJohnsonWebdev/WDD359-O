@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import logo from './../images/Kyle.jpg';
 import Paper from '@material-ui/core/Paper';
 
+//variable for the style attributes
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
@@ -19,12 +20,12 @@ const useStyles = makeStyles(theme => ({
     height: 350,
   },
 }));
-
+//functional component
 export default function About() {
   const classes = useStyles();
 
   return (
-  <div>
+  <div> {/* root dom node */}
     <Typography gutterBottom='true' variant="h3" align="center">About</Typography>
     <Paper className={classes.root}>
       <Card className={classes.card}>

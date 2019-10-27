@@ -47,7 +47,7 @@ function ContactUs(){
     setValues({ ...values, [name]: event.target.value });
   };
   return(
-    <div>
+    <div>{/* root dom node */}
       <Typography gutterBottom='true' variant="h3" align="center">Contact Us</Typography>
       <Paper className={classes.root}>
         <form className={classes.container} noValidate autoComplete="off">
