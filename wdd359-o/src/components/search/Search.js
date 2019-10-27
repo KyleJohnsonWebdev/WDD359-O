@@ -52,10 +52,12 @@ export default function SearchMovie(props) {
   const [value, setValue] = React.useState('');
   const onChange = event => setValue(event.target.value);
   const [data, setData] = useState({ results: [] });
-  const [videoID, setVideoID] = useState('');
-  const viewMovie = e => {
+//  const [videoID, setVideoID] = useState('');
+  const viewMovie = (e) => {
     //i want to use that binded variable here
-    console.log(e.id)
+    console.log(e);
+    const url = "https://www.themoviedb.org/movie/" + e;
+    window.open(url)
 
   }
 
@@ -98,7 +100,7 @@ export default function SearchMovie(props) {
               <Typography gutterBottom='true' component="p">Release Date:{item.release_date} </Typography>
               <Button variant="contained" className={classes.button} onClick={ () => {viewMovie(item.id)}}
               >
-                View
+                view {item.title} on TMDB
               </Button>
               <Divider className={classes.dividerTwo} orientation="horizontal" />
           </div>

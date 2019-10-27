@@ -4,11 +4,11 @@ import Typography from '@material-ui/core/Typography';
 const aPI = 'AIzaSyDEVvgG2n21JbTBC_EObqDxHP6EmuY9ndw';
 const iD = 'UCCEfOHkckMXnoZQAjUZsMig';
 const results = 3;
-let url = `https://www.googleapis.com/youtube/v3/search?key=${aPI}&channelId=${iD}&part=snippet,id&order=date&maxResults=${results}`
+let url = `https://www.googleapis.com/youtube/v3/search?key=${aPI}&channelId=${iD}&part=snippet,id&order=date&maxResults=${results}`;
 
-//youtube class
+//see notes from aTwentyFour, I need to probably remove the different cinema studio js files and just pass props to a master component
 class BlumHouse extends Component {
-//still learning hooks so I used props
+
   constructor(props){
     super(props);
     this.state = {

@@ -5,6 +5,7 @@ const iD = 'UCYUQQgogVeQY8cMQamhHJcg';
 const results = 10;
 let url = `https://www.googleapis.com/youtube/v3/search?key=${aPI}&channelId=${iD}&part=snippet,id&order=date&maxResults=${results}`
 
+//see notes from aTwentyFour, I need to probably remove the different cinema studio js files and just pass props to a master component
 class CinemaSYoutube extends Component {
   constructor(props){
     super(props);

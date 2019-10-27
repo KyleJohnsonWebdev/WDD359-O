@@ -6,9 +6,9 @@ const iD = 'UCuPivVjnfNo4mb3Oog_frZg';
 const results = 3;
 let url = `https://www.googleapis.com/youtube/v3/search?key=${aPI}&channelId=${iD}&part=snippet,id&order=date&maxResults=${results}`
 
-//youtube class
+//class for A24 Studios
 class ATwentyFour extends Component {
-//still learning hooks so I used props
+//still learning hooks so I used a class component
   constructor(props){
     super(props);
     this.state = {
@@ -17,10 +17,12 @@ class ATwentyFour extends Component {
     };
 
   }
+  // componentDidMount() is invoked immediately after a component is mounted (inserted into the tree).
 componentDidMount(){
   this.loadVideos()
 }
   loadVideos(){
+    //fetch the results
     fetch(url)
     .then((response) => response.json())
     .then((responseJson) => {
@@ -39,30 +41,30 @@ componentDidMount(){
 
   render(){
     return(
+      // “root” DOM node
       <div>
       <Typography variant="h5" gutterBottom align="center">
         A 24
       </Typography>
-      <div >
-          {
-            this.state.youTubeVideoID.map((youTubeLink, i) => {
-              console.log(youTubeLink);
-              let youTubeIFrame =
+        <div >
+            {
+              this.state.youTubeVideoID.map((youTubeLink, i) => {
+                let youTubeIFrame =
+                <div key={i} className="iFrame" style={{ marginBottom: "1rem", position: "relative", paddingBottom: "56.25%" /* 16:9 */, paddingTop: 25, height: 0 }}>
+                  <iframe key={i} title={youTubeLink} style={{ position: "absolute",top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%"
+          }} src={youTubeLink} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                </div>
 
-              <div key={i} className="iFrame" style={{ marginBottom: "1rem", position: "relative", paddingBottom: "56.25%" /* 16:9 */, paddingTop: 25, height: 0 }}>
-                <iframe key={i} title={youTubeLink} style={{ position: "absolute",top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%"
-        }} src={youTubeLink} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-              </div>
+                return youTubeIFrame;
+              })
+            }
+            {/* rentime binding */}
+            {this.youTubeIFrame}
 
-              return youTubeIFrame;
-            })
-          }
-          {this.youTubeIFrame}
-
-      </div>
+        </div>
       </div>
     );
   }
