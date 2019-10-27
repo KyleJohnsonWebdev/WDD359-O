@@ -1,0 +1,2 @@
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.wrapper{display:flex;flex-flow:row wrap;font-weight:700;text-align:center}.wrapper>*{flex:1 1 100%}@media (min-width:600px){.aside{flex:1 1 auto}}@media (min-width:800px){.main{flex:2 1}.asideOne{order:1}.main{order:2}.asideTwo{order:3}.footer{order:4}}.logo{width:150px;text-align:center}
+/*# sourceMappingURL=main.7fef5e07.chunk.css.map */

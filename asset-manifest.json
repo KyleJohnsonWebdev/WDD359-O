@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/WDD359-O/static/css/main.7fef5e07.chunk.css",
+    "main.js": "/WDD359-O/static/js/main.ed208ce0.chunk.js",
+    "main.js.map": "/WDD359-O/static/js/main.ed208ce0.chunk.js.map",
+    "runtime-main.js": "/WDD359-O/static/js/runtime-main.0bfc6510.js",
+    "runtime-main.js.map": "/WDD359-O/static/js/runtime-main.0bfc6510.js.map",
+    "static/js/2.8ab0a2a6.chunk.js": "/WDD359-O/static/js/2.8ab0a2a6.chunk.js",
+    "static/js/2.8ab0a2a6.chunk.js.map": "/WDD359-O/static/js/2.8ab0a2a6.chunk.js.map",
+    "index.html": "/WDD359-O/index.html",
+    "precache-manifest.8b3c9f2cdc67714f8b21a584df49f6ad.js": "/WDD359-O/precache-manifest.8b3c9f2cdc67714f8b21a584df49f6ad.js",
+    "service-worker.js": "/WDD359-O/service-worker.js",
+    "static/css/main.7fef5e07.chunk.css.map": "/WDD359-O/static/css/main.7fef5e07.chunk.css.map",
+    "static/media/Kyle.jpg": "/WDD359-O/static/media/Kyle.5cc8a75f.jpg",
+    "static/media/MrSunday.jpg": "/WDD359-O/static/media/MrSunday.25e8e4cc.jpg",
+    "static/media/camper.png": "/WDD359-O/static/media/camper.e2883727.png",
+    "static/media/chrisStuckmann.jpg": "/WDD359-O/static/media/chrisStuckmann.8fb6db24.jpg",
+    "static/media/cinemaSins.jpg": "/WDD359-O/static/media/cinemaSins.09d46848.jpg",
+    "static/media/jeremyJahns.jpg": "/WDD359-O/static/media/jeremyJahns.3953bda4.jpg",
+    "static/media/rottenTomatoes.jpg": "/WDD359-O/static/media/rottenTomatoes.8fd48146.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0bfc6510.js",
+    "static/js/2.8ab0a2a6.chunk.js",
+    "static/css/main.7fef5e07.chunk.css",
+    "static/js/main.ed208ce0.chunk.js"
+  ]
+}
